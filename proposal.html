@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Big Question ❤️</title>
+    <style>
+        body {
+            background: linear-gradient(red, pink);
+            color: white;
+            text-align: center;
+            padding: 50px;
+            font-family: Arial;
+        }
+        .box {
+            background: white;
+            color: black;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .yes { 
+            background: green; 
+            color: white; 
+            padding: 15px 40px; 
+            border: none; 
+            border-radius: 50px; 
+            font-size: 1.5rem; 
+            margin: 10px; 
+            cursor: pointer;
+        }
+        .no { 
+            background: orange; 
+            color: white; 
+            padding: 15px 40px; 
+            border: none; 
+            border-radius: 50px; 
+            font-size: 1.5rem; 
+            margin: 10px; 
+            cursor: pointer;
+            position: relative;
+        }
+        h1 { color: red; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Will you be my Valentine? ❤️</h1>
+        <p>You mean everything to me...</p>
+        <button class="yes" onclick="alert('🎉 YAY! I love you! 💕')">YES! ❤️</button>
+        <button class="no" id="noBtn" onclick="moveButton()">No</button>
+    </div>
+    
+    <script>
+        function moveButton() {
+            const btn = document.getElementById('noBtn');
+            btn.style.position = 'absolute';
+            btn.style.left = Math.random() * 80 + '%';
+            btn.style.top = Math.random() * 80 + '%';
+            btn.textContent = 'Are you sure? 😢';
+        }
+    </script>
+</body>
+</html>
