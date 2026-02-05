@@ -1,64 +1,162 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>The Big Question ❤️</title>
-    <style>
-        body {
-            background: linear-gradient(red, pink);
-            color: white;
-            text-align: center;
-            padding: 50px;
-            font-family: Arial;
-        }
-        .box {
-            background: white;
-            color: black;
-            padding: 40px;
-            border-radius: 20px;
-            max-width: 600px;
-            margin: auto;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-        .yes { 
-            background: green; 
-            color: white; 
-            padding: 15px 40px; 
-            border: none; 
-            border-radius: 50px; 
-            font-size: 1.5rem; 
-            margin: 10px; 
-            cursor: pointer;
-        }
-        .no { 
-            background: orange; 
-            color: white; 
-            padding: 15px 40px; 
-            border: none; 
-            border-radius: 50px; 
-            font-size: 1.5rem; 
-            margin: 10px; 
-            cursor: pointer;
-            position: relative;
-        }
-        h1 { color: red; }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine? ❤️</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="box">
-        <h1>Will you be my Valentine? ❤️</h1>
-        <p>You mean everything to me...</p>
-        <button class="yes" onclick="alert('🎉 YAY! I love you! 💕')">YES! ❤️</button>
-        <button class="no" id="noBtn" onclick="moveButton()">No</button>
+    <!-- Music Player -->
+    <div class="music-player">
+        <button id="music-toggle" class="music-btn">
+            <i class="fas fa-play" id="music-icon"></i>
+            <span id="music-text">Play Love Song</span>
+        </button>
+        <div class="volume-control">
+            <i class="fas fa-volume-down"></i>
+            <input type="range" id="volume-slider" min="0" max="100" value="50">
+            <i class="fas fa-volume-up"></i>
+        </div>
+        <audio id="background-music" loop>
+            <source src="assets/music/love-song.mp3" type="audio/mpeg">
+            <source src="assets/music/romantic-piano.mp3" type="audio/mpeg">
+        </audio>
     </div>
     
-    <script>
-        function moveButton() {
-            const btn = document.getElementById('noBtn');
-            btn.style.position = 'absolute';
-            btn.style.left = Math.random() * 80 + '%';
-            btn.style.top = Math.random() * 80 + '%';
-            btn.textContent = 'Are you sure? 😢';
-        }
-    </script>
+    <!-- Background Elements -->
+    <div class="heart-bg"></div>
+    <div class="floating-container" id="floating-hearts"></div>
+    <div class="sparkle-container" id="sparkles"></div>
+    
+    <div class="container">
+        <!-- Time Greeting -->
+        <div class="time-greeting">
+            <div class="greeting-card">
+                <h3><span id="greeting-icon">🌅</span> Good Morning, My Love! <span id="greeting-icon">🌅</span></h3>
+                <p>Every moment with you is special. Today is all about us!</p>
+            </div>
+        </div>
+        
+        <header>
+            <h1><i class="fas fa-heart"></i> Happy Valentine's Day! <i class="fas fa-heart"></i></h1>
+            <div class="date-display">
+                <i class="fas fa-calendar-heart"></i>
+                <span id="current-date">Loading date...</span>
+                <i class="fas fa-clock"></i>
+                <span id="current-time">Loading time...</span>
+            </div>
+        </header>
+        
+        <main class="home-content">
+            <div class="message-box">
+                <!-- Welcome Section -->
+                <div class="welcome-section">
+                    <h2>To My Special Someone ❤️</h2>
+                    <p class="love-message">
+                        Every moment with you feels like a beautiful dream...<br>
+                        You make my world brighter with your smile.<br>
+                        Today, I have something very important to ask you.
+                    </p>
+                </div>
+                
+                <!-- Photo Gallery -->
+                <div class="gallery-section">
+                    <h3><i class="fas fa-images"></i> Our Beautiful Memories</h3>
+                    <div class="photo-gallery" id="gallery">
+                        <!-- Photo 1 -->
+                        <div class="photo-item">
+                            <div class="photo-frame">
+                                <img src="assets/images/memory1.jpg" alt="Our First Date" class="gallery-photo">
+                                <div class="photo-overlay">
+                                    <div class="photo-caption">
+                                        <h4>Our First Date ❤️</h4>
+                                        <p><i class="far fa-calendar"></i> March 15, 2023</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Photo 2 -->
+                        <div class="photo-item">
+                            <div class="photo-frame">
+                                <img src="assets/images/memory2.jpg" alt="Beach Vacation" class="gallery-photo">
+                                <div class="photo-overlay">
+                                    <div class="photo-caption">
+                                        <h4>Beach Vacation 🌊</h4>
+                                        <p><i class="far fa-calendar"></i> July 4, 2023</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Photo 3 -->
+                        <div class="photo-item">
+                            <div class="photo-frame">
+                                <img src="assets/images/memory3.jpg" alt="Christmas Together" class="gallery-photo">
+                                <div class="photo-overlay">
+                                    <div class="photo-caption">
+                                        <h4>First Christmas Together 🎄</h4>
+                                        <p><i class="far fa-calendar"></i> December 25, 2023</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Interactive Heart -->
+                <div class="interactive-heart-container">
+                    <h3>Click the Heart!</h3>
+                    <div class="interactive-heart" id="click-heart">
+                        <i class="fas fa-heart"></i>
+                        <div class="heart-pulse"></div>
+                    </div>
+                    <p id="heart-message">Click me to see a surprise!</p>
+                </div>
+                
+                <!-- Countdown Timer -->
+                <div class="countdown-section">
+                    <h3><i class="fas fa-clock"></i> Valentine's Day Countdown</h3>
+                    <div class="countdown-timer">
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="countdown-days">00</div>
+                            <div class="countdown-label">Days</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="countdown-hours">00</div>
+                            <div class="countdown-label">Hours</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="countdown-minutes">00</div>
+                            <div class="countdown-label">Minutes</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="countdown-seconds">00</div>
+                            <div class="countdown-label">Seconds</div>
+                        </div>
+                    </div>
+                    <p class="countdown-message" id="countdown-message">Counting down to our special day...</p>
+                </div>
+                
+                <!-- Call to Action -->
+                <div class="cta-section">
+                    <h3>Ready for the big question?</h3>
+                    <a href="proposal.html" class="btn-primary pulse-animation">
+                        <i class="fas fa-gift"></i> Open Your Special Valentine's Card
+                    </a>
+                    <div class="hint">
+                        <i class="fas fa-lightbulb"></i> Hint: There's a surprise waiting for you!
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Made with <i class="fas fa-heartbeat"></i> for you, My Love</p>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
 </body>
 </html>
